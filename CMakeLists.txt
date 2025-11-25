@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.13)
 
 project(tree-sitter-scribl
         VERSION "0.1.0"
-        DESCRIPTION "The tree sitter parser for the Scribl toy lang"
+        DESCRIPTION "Scribl grammar for tree-sitter"
         HOMEPAGE_URL "https://github.com/scribhneoir/tree-sitter-scribl"
         LANGUAGES C)
 

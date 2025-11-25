@@ -1,6 +1,6 @@
 [package]
 name = "tree-sitter-scribl"
-description = "The tree sitter parser for the Scribl toy lang"
+description = "Scribl grammar for tree-sitter"
 version = "0.1.0"
 authors = ["Josiah McCracken <josiah@scribhneoir.com>"]
 license = "MIT"

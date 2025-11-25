@@ -1,7 +1,7 @@
 {
   "name": "tree-sitter-scribl",
   "version": "0.1.0",
-  "description": "The tree sitter parser for the Scribl toy lang",
+  "description": "Scribl grammar for tree-sitter",
   "repository": "https://github.com/scribhneoir/tree-sitter-scribl",
   "license": "MIT",
   "author": {

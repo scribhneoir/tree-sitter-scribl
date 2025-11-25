@@ -1,5 +1,5 @@
 /**
- * @file The tree sitter parser for the Scribl toy lang
+ * @file Scribl grammar for tree-sitter
  * @author Josiah McCracken <josiah@scribhneoir.com>
  * @license MIT
  */

@@ -14,7 +14,7 @@
   "metadata": {
     "version": "0.1.0",
     "license": "MIT",
-    "description": "The tree sitter parser for the Scribl toy lang",
+    "description": "Scribl grammar for tree-sitter",
     "authors": [
       {
         "name": "Josiah McCracken",
