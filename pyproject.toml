@@ -3,7 +3,7 @@ requires = ["setuptools>=62.4.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "tree-sitter-tree-sitter-scribl"
+name = "tree-sitter-scribl"
 description = "The tree sitter parser for the Scribl toy lang"
 version = "0.1.0"
 keywords = ["incremental", "parsing", "tree-sitter", "tree-sitter-scribl"]

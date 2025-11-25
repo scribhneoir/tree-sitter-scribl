@@ -2,15 +2,13 @@
   "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
   "grammars": [
     {
-      "name": "tree_sitter_scribl",
-      "camelcase": "TreeSitterScribl",
-      "title": "TreeSitterScribl",
-      "scope": "source.tree_sitter_scribl",
-      "file-types": [
-        "scribl"
-      ],
-      "injection-regex": "^tree_sitter_scribl$",
-      "class-name": "TreeSitterTreeSitterScribl"
+      "name": "scribl",
+      "camelcase": "Scribl",
+      "title": "Scribl",
+      "scope": "source.scribl",
+      "file-types": ["scribl"],
+      "injection-regex": "^scribl$",
+      "class-name": "TreeSitterScribl"
     }
   ],
   "metadata": {

@@ -2,7 +2,7 @@ ifeq ($(OS),Windows_NT)
 $(error Windows is not supported)
 endif
 
-LANGUAGE_NAME := tree-sitter-tree-sitter-scribl
+LANGUAGE_NAME := tree-sitter-scribl
 HOMEPAGE_URL := https://github.com/scribhneoir/tree-sitter-scribl
 VERSION := 0.1.0
 

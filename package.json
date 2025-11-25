@@ -1,5 +1,5 @@
 {
-  "name": "tree-sitter-tree-sitter-scribl",
+  "name": "tree-sitter-scribl",
   "version": "0.1.0",
   "description": "The tree sitter parser for the Scribl toy lang",
   "repository": "https://github.com/scribhneoir/tree-sitter-scribl",

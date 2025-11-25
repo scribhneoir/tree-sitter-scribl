@@ -1,5 +1,5 @@
 [package]
-name = "tree-sitter-tree-sitter-scribl"
+name = "tree-sitter-scribl"
 description = "The tree sitter parser for the Scribl toy lang"
 version = "0.1.0"
 authors = ["Josiah McCracken <josiah@scribhneoir.com>"]
