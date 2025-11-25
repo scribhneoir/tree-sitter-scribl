@@ -1,0 +1,40 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "tree_sitter_scribl",
+      "camelcase": "TreeSitterScribl",
+      "title": "TreeSitterScribl",
+      "scope": "source.tree_sitter_scribl",
+      "file-types": [
+        "scribl"
+      ],
+      "injection-regex": "^tree_sitter_scribl$",
+      "class-name": "TreeSitterTreeSitterScribl"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "The tree sitter parser for the Scribl toy lang",
+    "authors": [
+      {
+        "name": "Josiah McCracken",
+        "email": "josiah@scribhneoir.com",
+        "url": "https://www.scribhneoir.com/"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/scribhneoir/tree-sitter-scribl"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true,
+    "zig": false
+  }
+}
