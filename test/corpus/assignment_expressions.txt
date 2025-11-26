@@ -1,0 +1,461 @@
+==================
+Simple variable assignment
+==================
+
+x = 42;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (number))))
+
+==================
+String assignment
+==================
+
+name = 'John';
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (string))))
+
+==================
+Boolean assignment
+==================
+
+flag = true;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (true))))
+
+==================
+Template string assignment
+==================
+
+message = "Hello ${name}";
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (template_string
+        (template_variable
+          (identifier))))))
+
+==================
+Function assignment
+==================
+
+func = (x){x;};
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (function
+        (parameter
+          (identifier))
+        (block
+          (statement
+            (identifier)))))))
+
+==================
+Array assignment
+==================
+
+arr = [1, 2, 3];
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (iterator
+        (number)
+        (number)
+        (number)))))
+
+==================
+Block assignment
+==================
+
+block = {42;};
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (block
+        (statement
+          (number))))))
+
+==================
+Binary expression assignment
+==================
+
+result = x + y;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (binary_expression
+        left: (identifier)
+        right: (identifier)))))
+
+==================
+Function call assignment
+==================
+
+value = func();
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (call_expression
+        (identifier)))))
+
+==================
+Member expression assignment to member
+==================
+
+obj.property = value;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (member_expression
+        (identifier)
+        (identifier))
+      right: (identifier))))
+
+==================
+Member expression assignment from member
+==================
+
+x = obj.property;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (member_expression
+        (identifier)
+        (identifier)))))
+
+==================
+Array subscript assignment to subscript
+==================
+
+arr[0] = value;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (subscript_expression
+        (identifier)
+        (number))
+      right: (identifier))))
+
+==================
+Array subscript assignment from subscript
+==================
+
+x = arr[index];
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (subscript_expression
+        (identifier)
+        (identifier)))))
+
+==================
+Chained assignments
+==================
+
+matrix[i][j] = value;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (subscript_expression
+        (subscript_expression
+          (identifier)
+          (identifier))
+        (identifier))
+      right: (identifier))))
+
+==================
+Complex nested assignment
+==================
+
+obj.nested.property = func(arr[0]);
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (member_expression
+        (member_expression
+          (identifier)
+          (identifier))
+        (identifier))
+      right: (call_expression
+        (identifier)
+        (subscript_expression
+          (identifier)
+          (number))))))
+
+==================
+Empty destructuring block
+==================
+
+{} = obj;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (destructuring_block)
+      right: (identifier))))
+
+==================
+Simple destructuring block
+==================
+
+{x} = obj;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (destructuring_block
+        (identifier))
+      right: (identifier))))
+
+==================
+Multiple destructuring block
+==================
+
+{a, b, c} = obj;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (destructuring_block
+        (identifier)
+        (identifier)
+        (identifier))
+      right: (identifier))))
+
+==================
+Destructuring block with trailing comma
+==================
+
+{x, y,} = obj;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (destructuring_block
+        (identifier)
+        (identifier))
+      right: (identifier))))
+
+==================
+Empty destructuring iterator
+==================
+
+[] = arr;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (destructuring_iterator)
+      right: (identifier))))
+
+==================
+Simple destructuring iterator
+==================
+
+[x] = arr;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (destructuring_iterator
+        (identifier))
+      right: (identifier))))
+
+==================
+Multiple destructuring iterator
+==================
+
+[a, b, c] = arr;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (destructuring_iterator
+        (identifier)
+        (identifier)
+        (identifier))
+      right: (identifier))))
+
+==================
+Destructuring with spread
+==================
+
+[first, ...rest] = arr;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (destructuring_iterator
+        (identifier)
+        (identifier))
+      right: (identifier))))
+
+==================
+Destructuring with gaps
+==================
+
+[, second, , fourth] = arr;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (destructuring_iterator
+        (identifier)
+        (identifier))
+      right: (identifier))))
+
+==================
+Spread only destructuring
+==================
+
+[...all] = arr;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (destructuring_iterator
+        (identifier))
+      right: (identifier))))
+
+==================
+Assignment with unary expression
+==================
+
+x = -value;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (unary_expression
+        argument: (identifier)))))
+
+==================
+Assignment with spread expression
+==================
+
+arr = ...other;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (spread_expression
+        (identifier)))))
+
+==================
+Assignment precedence with binary
+==================
+
+x = y + z * w;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (binary_expression
+        left: (identifier)
+        right: (binary_expression
+          left: (identifier)
+          right: (identifier))))))
+
+==================
+Void assignment
+==================
+
+result = void;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (void))))

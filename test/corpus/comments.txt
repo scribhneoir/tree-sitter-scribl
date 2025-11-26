@@ -1,0 +1,334 @@
+==================
+Single line comment
+==================
+
+// This is a comment
+42;
+
+---
+
+(block
+  (comment)
+  (statement
+    (number)))
+
+==================
+Single line comment at end of line
+==================
+
+42; // End of line comment
+
+---
+
+(block
+  (statement
+    (number)
+    (comment)))
+
+==================
+Empty single line comment
+==================
+
+//
+true;
+
+---
+
+(block
+  (comment)
+  (statement
+    (true)))
+
+==================
+Multi-line comment
+==================
+
+/* This is a
+   multi-line comment */
+false;
+
+---
+
+(block
+  (comment)
+  (statement
+    (false)))
+
+==================
+Single line multi-line comment
+==================
+
+/* Single line */
+void;
+
+---
+
+(block
+  (comment)
+  (statement
+    (void)))
+
+==================
+Empty multi-line comment
+==================
+
+/**/
+123;
+
+---
+
+(block
+  (comment)
+  (statement
+    (number)))
+
+==================
+Multiple single line comments
+==================
+
+// First comment
+// Second comment
+'string';
+
+---
+
+(block
+  (comment)
+  (comment)
+  (statement
+    (string)))
+
+==================
+Mixed comment types
+==================
+
+// Line comment
+/* Block comment */
+variable;
+
+---
+
+(block
+  (comment)
+  (comment)
+  (statement
+    (identifier)))
+
+==================
+Comment between expressions
+==================
+
+first;
+// Comment in between
+second;
+
+---
+
+(block
+  (statement
+    (identifier))
+  (comment)
+  (statement
+    (identifier)))
+
+==================
+Comment with special characters
+==================
+
+// Comment with !@#$%^&*()
+result;
+
+---
+
+(block
+  (comment)
+  (statement
+    (identifier)))
+
+==================
+Comment with numbers and symbols
+==================
+
+// 123 + 456 = 789
+calculation;
+
+---
+
+(block
+  (comment)
+  (statement
+    (identifier)))
+
+==================
+Multi-line comment with asterisks
+==================
+
+/*
+ * This is a comment
+ * with asterisks
+ */
+data;
+
+---
+
+(block
+  (comment)
+  (statement
+    (identifier)))
+
+==================
+Nested-like comment content
+==================
+
+/* /* This looks nested but isn't */ */
+test;
+
+---
+
+(block
+  (comment)
+  (statement
+    (identifier)))
+
+==================
+Comment before function
+==================
+
+// Function definition
+(x) {x;};
+
+---
+
+(block
+  (comment)
+  (statement
+    (function
+      (parameter
+        (identifier))
+      (block
+        (statement
+          (identifier))))))
+
+==================
+Comment before block
+==================
+
+// Block expression
+{value;};
+
+---
+
+(block
+  (comment)
+  (statement
+    (block
+      (statement
+        (identifier)))))
+
+==================
+Comment with Unicode
+==================
+
+// Comment with émojis 🚀 and ñíçë characters
+unicode;
+
+---
+
+(block
+  (comment)
+  (statement
+    (identifier)))
+
+==================
+Comment at start of file
+==================
+
+// File header comment
+start;
+
+---
+
+(block
+  (comment)
+  (statement
+    (identifier)))
+
+==================
+Multiple comments at end
+==================
+
+end;
+// First end comment
+// Second end comment
+
+---
+
+(block
+  (statement
+    (identifier))
+  (comment)
+  (comment))
+
+==================
+Comment in complex expression
+==================
+
+func(
+  // Parameter comment
+  arg
+);
+
+---
+
+(block
+  (statement
+    (call_expression
+      (identifier)
+      (comment)
+      (identifier))))
+
+==================
+URL in comment
+==================
+
+// See https://example.com for details
+url;
+
+---
+
+(block
+  (comment)
+  (statement
+    (identifier)))
+
+==================
+Comment with code-like content
+==================
+
+// if (condition) { doSomething(); }
+pseudocode;
+
+---
+
+(block
+  (comment)
+  (statement
+    (identifier)))
+
+==================
+Multi-line comment with code
+==================
+
+/*
+function example() {
+  return 42;
+}
+*/
+commented;
+
+---
+
+(block
+  (comment)
+  (statement
+    (identifier)))

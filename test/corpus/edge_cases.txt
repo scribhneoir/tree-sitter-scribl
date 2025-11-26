@@ -1,0 +1,643 @@
+==================
+Empty source file
+==================
+
+
+
+---
+
+(block)
+
+==================
+Only whitespace
+==================
+
+
+
+
+
+---
+
+(block)
+
+==================
+Only comments
+==================
+
+// Just a comment
+/* Another comment */
+
+---
+
+(block
+  (comment)
+  (comment))
+
+==================
+Multiple semicolons
+==================
+
+42;;
+
+---
+
+(block
+  (statement
+    (number)))
+
+==================
+Whitespace around expressions
+==================
+
+   42   ;
+
+---
+
+(block
+  (statement
+    (number)))
+
+==================
+Tab characters
+==================
+
+	42	;
+
+---
+
+(block
+  (statement
+    (number)))
+
+==================
+Mixed whitespace
+==================
+
+ 	 42 	 ;
+
+---
+
+(block
+  (statement
+    (number)))
+
+==================
+Very long identifier
+==================
+
+this_is_a_very_long_identifier_with_many_underscores_and_numbers_123_456_789;
+
+---
+
+(block
+  (statement
+    (identifier)))
+
+==================
+Single character identifier
+==================
+
+x;
+
+---
+
+(block
+  (statement
+    (identifier)))
+
+==================
+Underscore only identifier
+==================
+
+_;
+
+---
+
+(block
+  (statement
+    (identifier)))
+
+==================
+Identifier with all valid characters
+==================
+
+_validName123_456;
+
+---
+
+(block
+  (statement
+    (identifier)))
+
+==================
+Large integer
+==================
+
+999999999999999999999999999999;
+
+---
+
+(block
+  (statement
+    (number)))
+
+==================
+Very small float
+==================
+
+0.0000000000000001;
+
+---
+
+(block
+  (statement
+    (number)))
+
+==================
+Float with many decimal places
+==================
+
+3.14159265358979323846264338327950288;
+
+---
+
+(block
+  (statement
+    (number)))
+
+==================
+Zero with decimal
+==================
+
+0.0;
+
+---
+
+(block
+  (statement
+    (number)))
+
+==================
+Leading zeros in decimal
+==================
+
+0000123;
+
+---
+
+(block
+  (statement
+    (number)))
+
+==================
+Maximum hex value
+==================
+
+0xFFFFFFFF;
+
+---
+
+(block
+  (statement
+    (number)))
+
+==================
+Lowercase hex
+==================
+
+0xabcdef;
+
+---
+
+(block
+  (statement
+    (number)))
+
+==================
+Mixed case hex
+==================
+
+0xAbCdEf;
+
+---
+
+(block
+  (statement
+    (number)))
+
+==================
+Zero hex
+==================
+
+0x0;
+
+---
+
+(block
+  (statement
+    (number)))
+
+==================
+Octal with all digits
+==================
+
+0o01234567;
+
+---
+
+(block
+  (statement
+    (number)))
+
+==================
+Zero octal
+==================
+
+0o0;
+
+---
+
+(block
+  (statement
+    (number)))
+
+==================
+Binary all ones
+==================
+
+0b11111111;
+
+---
+
+(block
+  (statement
+    (number)))
+
+==================
+Binary all zeros
+==================
+
+0b00000000;
+
+---
+
+(block
+  (statement
+    (number)))
+
+==================
+Single binary digit
+==================
+
+0b1;
+
+---
+
+(block
+  (statement
+    (number)))
+
+==================
+Empty string literal
+==================
+
+'';
+
+---
+
+(block
+  (statement
+    (string)))
+
+==================
+String with spaces only
+==================
+
+'   ';
+
+---
+
+(block
+  (statement
+    (string)))
+
+==================
+String with special characters
+==================
+
+'!@#$%^&*()[]{}|\\:";,.<>?/~';
+
+---
+
+(block
+  (statement
+    (string)))
+
+==================
+Long string
+==================
+
+'This is a very long string with many characters that goes on and on and on and should still be parsed correctly regardless of its length';
+
+---
+
+(block
+  (statement
+    (string)))
+
+==================
+Empty template string
+==================
+
+"";
+
+---
+
+(block
+  (statement
+    (template_string)))
+
+==================
+Template string with only text
+==================
+
+"hello world";
+
+---
+
+(block
+  (statement
+    (template_string)))
+
+==================
+Template string with dollar sign
+==================
+
+"Price: $5.99";
+
+---
+
+(block
+  (statement
+    (template_string)))
+
+==================
+Template string with escaped dollar
+==================
+
+"This is $not a variable";
+
+---
+
+(block
+  (statement
+    (template_string)))
+
+==================
+Template string with empty variable
+==================
+
+"Value: ${}";
+
+---
+
+(block
+  (statement
+    (template_string
+      (template_variable))))
+
+==================
+Nested template variables
+==================
+
+"${x} and ${y}";
+
+---
+
+(block
+  (statement
+    (template_string
+      (template_variable
+        (identifier))
+      (template_variable
+        (identifier)))))
+
+==================
+Maximum nesting depth
+==================
+
+func1(func2(func3(func4(func5()))));
+
+---
+
+(block
+  (statement
+    (call_expression
+      (identifier)
+      (call_expression
+        (identifier)
+        (call_expression
+          (identifier)
+          (call_expression
+            (identifier)
+            (call_expression
+              (identifier))))))))
+
+==================
+Deep member access
+==================
+
+obj.level1.level2.level3.level4.level5.level6.level7.level8;
+
+---
+
+(block
+  (statement
+    (member_expression
+      (member_expression
+        (member_expression
+          (member_expression
+            (member_expression
+              (member_expression
+                (member_expression
+                  (member_expression
+                    (identifier)
+                    (identifier))
+                  (identifier))
+                (identifier))
+              (identifier))
+            (identifier))
+          (identifier))
+        (identifier))
+      (identifier))))
+
+==================
+Many array dimensions
+==================
+
+matrix[0][1][2][3][4];
+
+---
+
+(block
+  (statement
+    (subscript_expression
+      (subscript_expression
+        (subscript_expression
+          (subscript_expression
+            (subscript_expression
+              (identifier)
+              (number))
+            (number))
+          (number))
+        (number))
+      (number))))
+
+==================
+Mixed access patterns
+==================
+
+obj.method()[0].property[key].nested();
+
+---
+
+(block
+  (statement
+    (call_expression
+      (member_expression
+        (subscript_expression
+          (member_expression
+            (subscript_expression
+              (call_expression
+                (member_expression
+                  (identifier)
+                  (identifier)))
+              (number))
+            (identifier))
+          (identifier))
+        (identifier)))))
+
+==================
+Large array literal
+==================
+
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+---
+
+(block
+  (statement
+    (iterator
+      (number)
+      (number)
+      (number)
+      (number)
+      (number)
+      (number)
+      (number)
+      (number)
+      (number)
+      (number))))
+
+==================
+Empty function with many parameters
+==================
+
+(a, b, c, d, e, f) {};
+
+---
+
+(block
+  (statement
+    (function
+      (parameter
+        (identifier))
+      (parameter
+        (identifier))
+      (parameter
+        (identifier))
+      (parameter
+        (identifier))
+      (parameter
+        (identifier))
+      (parameter
+        (identifier))
+      (block))))
+
+==================
+Complex destructuring edge case
+==================
+
+{a, {b, c}, [d, e]} = data;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (destructuring_block
+        (identifier)
+        (destructuring_block
+          (identifier)
+          (identifier))
+        (destructuring_iterator
+          (identifier)
+          (identifier)))
+      right: (identifier))))
+
+==================
+Mixed assignment targets
+==================
+
+obj.prop[key] = value;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (subscript_expression
+        (member_expression
+          (identifier)
+          (identifier))
+        (identifier))
+      right: (identifier))))
+
+==================
+Unary on unary on unary
+==================
+
+!~-x;
+
+---
+
+(block
+  (statement
+    (unary_expression
+      (unary_expression
+        (unary_expression
+          (identifier))))))
+
+==================
+All operators in sequence
+==================
+
+a + b - c * d / e % f ** g;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      left: (binary_expression
+        left: (identifier)
+        right: (identifier))
+      right: (binary_expression
+        left: (binary_expression
+          left: (binary_expression
+            left: (identifier)
+            right: (identifier))
+          right: (identifier))
+        right: (binary_expression
+          left: (identifier)
+          right: (identifier))))))

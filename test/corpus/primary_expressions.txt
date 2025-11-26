@@ -1,0 +1,320 @@
+==================
+Simple identifier
+==================
+
+myVariable;
+
+---
+
+(block
+  (statement
+    (identifier)))
+
+==================
+Identifier with underscore
+==================
+
+_privateVar;
+
+---
+
+(block
+  (statement
+    (identifier)))
+
+==================
+Identifier with numbers
+==================
+
+var123;
+
+---
+
+(block
+  (statement
+    (identifier)))
+
+==================
+Empty block
+==================
+
+{};
+
+---
+
+(block
+  (statement
+    (block)))
+
+==================
+Block with single expression
+==================
+
+{42;};
+
+---
+
+(block
+  (statement
+    (block
+      (statement
+        (number)))))
+
+==================
+Block with multiple expressions
+==================
+
+{1; 2; 3;};
+
+---
+
+(block
+  (statement
+    (block
+      (statement
+        (number))
+      (statement
+        (number))
+      (statement
+        (number)))))
+
+==================
+Empty iterator
+==================
+
+[];
+
+---
+
+(block
+  (statement
+    (iterator)))
+
+==================
+Iterator with single element
+==================
+
+[42];
+
+---
+
+(block
+  (statement
+    (iterator
+      (number))))
+
+==================
+Iterator with multiple elements
+==================
+
+[1, 2, 3];
+
+---
+
+(block
+  (statement
+    (iterator
+      (number)
+      (number)
+      (number))))
+
+==================
+Empty function
+==================
+
+() {};
+
+---
+
+(block
+  (statement
+    (function
+      (block))))
+
+==================
+Function with single parameter
+==================
+
+(x) {x;};
+
+---
+
+(block
+  (statement
+    (function
+      (parameter
+        (identifier))
+      (block
+        (statement
+          (identifier))))))
+
+==================
+Function with multiple parameters
+==================
+
+(a, b, c) {a;};
+
+---
+
+(block
+  (statement
+    (function
+      (parameter
+        (identifier))
+      (parameter
+        (identifier))
+      (parameter
+        (identifier))
+      (block
+        (statement
+          (identifier))))))
+
+==================
+Simple function call
+==================
+
+func();
+
+---
+
+(block
+  (statement
+    (call_expression
+      (identifier))))
+
+==================
+Function call with arguments
+==================
+
+func(a, b);
+
+---
+
+(block
+  (statement
+    (call_expression
+      (identifier)
+      (identifier)
+      (identifier))))
+
+==================
+Chained function calls
+==================
+
+obj.method();
+
+---
+
+(block
+  (statement
+    (call_expression
+      (member_expression
+        (identifier)
+        (identifier)))))
+
+==================
+Member expression
+==================
+
+obj.property;
+
+---
+
+(block
+  (statement
+    (member_expression
+      (identifier)
+      (identifier))))
+
+==================
+Chained member expression
+==================
+
+obj.nested.property;
+
+---
+
+(block
+  (statement
+    (member_expression
+      (member_expression
+        (identifier)
+        (identifier))
+      (identifier))))
+
+==================
+Subscript expression
+==================
+
+arr[0];
+
+---
+
+(block
+  (statement
+    (subscript_expression
+      (identifier)
+      (number))))
+
+==================
+Subscript with multiple indices
+==================
+
+matrix[i, j];
+
+---
+
+(block
+  (statement
+    (subscript_expression
+      (identifier)
+      (identifier)
+      (identifier))))
+
+==================
+Spread expression
+==================
+
+...args;
+
+---
+
+(block
+  (statement
+    (spread_expression
+      (identifier))))
+
+==================
+Spread with member access
+==================
+
+...obj.items;
+
+---
+
+(block
+  (statement
+    (spread_expression
+      (member_expression
+        (identifier)
+        (identifier)))))
+
+==================
+Complex nested expression
+==================
+
+obj.method(arr[0], func());
+
+---
+
+(block
+  (statement
+    (call_expression
+      (member_expression
+        (identifier)
+        (identifier))
+      (subscript_expression
+        (identifier)
+        (number))
+      (call_expression
+        (identifier)))))

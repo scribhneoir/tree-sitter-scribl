@@ -1,0 +1,339 @@
+==================
+Complex nested function call with destructuring
+==================
+
+func([a, b, c], {x; y;});
+
+---
+
+(block
+  (statement
+    (call_expression
+      (identifier)
+      (iterator
+        (identifier)
+        (identifier)
+        (identifier))
+      (block
+        (statement
+          (identifier))
+        (statement
+          (identifier))))))
+
+==================
+Chained method calls with array access
+==================
+
+obj.method1().data[0].method2();
+
+---
+
+(block
+  (statement
+    (call_expression
+      (member_expression
+        (subscript_expression
+          (member_expression
+            (call_expression
+              (member_expression
+                (identifier)
+                (identifier)))
+            (identifier))
+          (number))
+        (identifier)))))
+
+==================
+Complex assignment with binary operations and function calls
+==================
+
+result = calculate(x + y) * getValue() + offset;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (binary_expression
+        left: (binary_expression
+          left: (call_expression
+            (identifier)
+            (binary_expression
+              left: (identifier)
+              right: (identifier)))
+          right: (call_expression
+            (identifier)))
+        right: (identifier)))))
+
+==================
+Template string with complex expressions
+==================
+
+"Result: ${func(x + y)} and ${obj.prop[index]}";
+
+---
+
+(block
+  (statement
+    (template_string
+      (template_variable
+        (call_expression
+          (identifier)
+          (binary_expression
+            (identifier)
+            (identifier))))
+      (template_variable
+        (subscript_expression
+          (member_expression
+            (identifier)
+            (identifier))
+          (identifier))))))
+
+==================
+Nested destructuring assignment
+==================
+
+{{a, b}, [c, d, ...rest]} = data;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (destructuring_block
+        (destructuring_block
+          (identifier)
+          (identifier))
+        (destructuring_iterator
+          (identifier)
+          (identifier)
+          (identifier)))
+      right: (identifier))))
+
+==================
+Function with complex parameters and body
+==================
+
+(x, {a, b}, [c, d]) {
+  result = x + a * b + c;
+  result;
+};
+
+---
+
+(block
+  (statement
+    (function
+      (parameter
+        (identifier))
+      (parameter
+        (destructuring_block
+          (identifier)
+          (identifier)))
+      (parameter
+        (destructuring_iterator
+          (identifier)
+          (identifier)))
+      (block
+        (statement
+          (assignment_expression
+            left: (identifier)
+            right: (binary_expression
+              left: (binary_expression
+                left: (identifier)
+                right: (binary_expression
+                  left: (identifier)
+                  right: (identifier)))
+              right: (identifier))))
+        (statement
+          (identifier))))))
+
+==================
+Complex conditional with multiple operators
+==================
+
+a && b || c && d == e && f < g * h;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      left: (binary_expression
+        left: (identifier)
+        right: (identifier))
+      right: (binary_expression
+        left: (binary_expression
+          left: (identifier)
+          right: (binary_expression
+            left: (identifier)
+            right: (identifier)))
+        right: (binary_expression
+          left: (identifier)
+          right: (binary_expression
+            left: (identifier)
+            right: (identifier)))))))
+
+==================
+Array operations with spread and destructuring
+==================
+
+newArray = [first, ...middle, last];
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (iterator
+        (identifier)
+        (spread_expression
+          (identifier))
+        (identifier)))))
+
+==================
+Nested member and subscript access
+==================
+
+obj.nested.array[0].property.method()[index];
+
+---
+
+(block
+  (statement
+    (subscript_expression
+      (call_expression
+        (member_expression
+          (member_expression
+            (subscript_expression
+              (member_expression
+                (member_expression
+                  (identifier)
+                  (identifier))
+                (identifier))
+              (number))
+            (identifier))
+          (identifier)))
+      (identifier))))
+
+==================
+Complex binary operations with precedence
+==================
+
+a + b * c ** d / e - f % g;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      left: (binary_expression
+        left: (identifier)
+        right: (binary_expression
+          left: (binary_expression
+            left: (identifier)
+            right: (binary_expression
+              left: (identifier)
+              right: (identifier)))
+          right: (identifier)))
+      right: (binary_expression
+        left: (identifier)
+        right: (identifier)))))
+
+==================
+Unary operations on complex expressions
+==================
+
+!func().property && -getValue()[0];
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (unary_expression
+        (member_expression
+          (call_expression
+            (identifier))
+          (identifier)))
+      (unary_expression
+        (subscript_expression
+          (call_expression
+            (identifier))
+          (number))))))
+
+==================
+Multi-dimensional array access with function calls
+==================
+
+matrix[getRow()][getCol(index + 1)];
+
+---
+
+(block
+  (statement
+    (subscript_expression
+      (subscript_expression
+        (identifier)
+        (call_expression
+          (identifier)))
+      (call_expression
+        (identifier)
+      (binary_expression
+        (identifier)
+        (number))))))
+
+==================
+Function returning function with complex body
+==================
+
+(x) {
+  (y) {
+    x * y + calculate(x, y);
+  };
+};
+
+---
+
+(block
+  (statement
+    (function
+      (parameter
+        (identifier))
+      (block
+        (statement
+          (function
+            (parameter
+              (identifier))
+            (block
+              (statement
+                (binary_expression
+                  (binary_expression
+                    (identifier)
+                    (identifier))
+                  (call_expression
+                    (identifier)
+                    (identifier)
+                    (identifier)))))))))))
+
+==================
+Complex ternary-like operation with nullish coalescing
+==================
+
+value ?? getValue() ?? getDefault(fallback + offset);
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (binary_expression
+        (identifier)
+        (call_expression
+          (identifier)))
+      (call_expression
+        (identifier)
+        (binary_expression
+          (identifier)
+          (identifier))))))

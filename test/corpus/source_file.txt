@@ -1,7 +1,37 @@
 ==================
-Source File
+Empty Block
 ==================
 
 ---
 
-(source_file)
+(block)
+
+==================
+Block with Single Statement (no braces)
+==================
+
+myVariable;
+
+---
+
+(block
+  (statement
+    (identifier)))
+
+==================
+Block with Multiple Statements (no braces)
+==================
+
+a;
+b;
+c;
+
+---
+
+(block
+  (statement
+    (identifier))
+  (statement
+    (identifier))
+  (statement
+    (identifier)))

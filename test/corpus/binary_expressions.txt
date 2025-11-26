@@ -1,0 +1,490 @@
+==================
+Logical AND
+==================
+
+true && false;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (true)
+      (false))))
+
+==================
+Logical OR
+==================
+
+true || false;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (true)
+      (false))))
+
+==================
+Addition
+==================
+
+5 + 3;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (number)
+      (number))))
+
+==================
+Subtraction
+==================
+
+10 - 7;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (number)
+      (number))))
+
+==================
+Multiplication
+==================
+
+4 * 6;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (number)
+      (number))))
+
+==================
+Division
+==================
+
+15 / 3;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (number)
+      (number))))
+
+==================
+Modulo
+==================
+
+17 % 5;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (number)
+      (number))))
+
+==================
+Exponentiation
+==================
+
+2 ** 8;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (number)
+      (number))))
+
+==================
+Left shift
+==================
+
+8 << 2;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (number)
+      (number))))
+
+==================
+Right shift
+==================
+
+16 >> 2;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (number)
+      (number))))
+
+==================
+Unsigned right shift
+==================
+
+-16 >>> 2;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (unary_expression
+        (number))
+      (number))))
+
+==================
+Bitwise AND
+==================
+
+12 & 5;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (number)
+      (number))))
+
+==================
+Bitwise OR
+==================
+
+8 | 4;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (number)
+      (number))))
+
+==================
+Bitwise XOR
+==================
+
+15 ^ 7;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (number)
+      (number))))
+
+==================
+Less than
+==================
+
+5 < 10;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (number)
+      (number))))
+
+==================
+Less than or equal
+==================
+
+5 <= 10;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (number)
+      (number))))
+
+==================
+Greater than
+==================
+
+15 > 10;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (number)
+      (number))))
+
+==================
+Greater than or equal
+==================
+
+15 >= 10;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (number)
+      (number))))
+
+==================
+Equality
+==================
+
+42 == 42;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (number)
+      (number))))
+
+==================
+Inequality
+==================
+
+5 != 10;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (number)
+      (number))))
+
+==================
+Nullish coalescing
+==================
+
+value ?? 'default';
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (identifier)
+      (string))))
+
+==================
+Variables in binary expressions
+==================
+
+x + y;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (identifier)
+      (identifier))))
+
+==================
+Mixed types
+==================
+
+count + 'items';
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (identifier)
+      (string))))
+
+==================
+Operator precedence - multiplication before addition
+==================
+
+2 + 3 * 4;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (number)
+      (binary_expression
+        (number)
+        (number)))))
+
+==================
+Operator precedence - exponentiation before multiplication
+==================
+
+2 * 3 ** 4;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (number)
+      (binary_expression
+        (number)
+        (number)))))
+
+==================
+Left associativity
+==================
+
+10 - 5 - 2;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (binary_expression
+        (number)
+        (number))
+      (number))))
+
+==================
+Right associativity for exponentiation
+==================
+
+2 ** 3 ** 2;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (number)
+      (binary_expression
+        (number)
+        (number)))))
+
+==================
+Complex expression with function calls
+==================
+
+func1() + func2() * 3;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (call_expression
+        (identifier))
+      (binary_expression
+        (call_expression
+          (identifier))
+        (number)))))
+
+==================
+Binary with member access
+==================
+
+obj.prop1 + obj.prop2;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (member_expression
+        (identifier)
+        (identifier))
+      (member_expression
+        (identifier)
+        (identifier)))))
+
+==================
+Binary with array access
+==================
+
+arr[0] + arr[1];
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (subscript_expression
+        (identifier)
+        (number))
+      (subscript_expression
+        (identifier)
+        (number)))))
+
+==================
+Chained comparisons
+==================
+
+a < b && b < c;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (binary_expression
+        (identifier)
+        (identifier))
+      (binary_expression
+        (identifier)
+        (identifier)))))
+
+==================
+Mixed logical operators
+==================
+
+true || false && true;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (true)
+      (binary_expression
+        (false)
+        (true)))))
+
+==================
+Template string in binary expression
+==================
+
+"Count: ${num}" + " items";
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (template_string
+        (template_variable
+          (identifier)))
+      (template_string))))

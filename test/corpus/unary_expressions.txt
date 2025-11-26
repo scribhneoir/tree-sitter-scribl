@@ -1,0 +1,205 @@
+==================
+Logical NOT unary expression
+==================
+
+!true;
+
+---
+
+(block
+  (statement
+    (unary_expression
+      (true))))
+
+==================
+Bitwise NOT unary expression
+==================
+
+~42;
+
+---
+
+(block
+  (statement
+    (unary_expression
+      (number))))
+
+==================
+Unary minus
+==================
+
+-123;
+
+---
+
+(block
+  (statement
+    (unary_expression
+      (number))))
+
+==================
+Unary plus
+==================
+
++456;
+
+---
+
+(block
+  (statement
+    (unary_expression
+      (number))))
+
+==================
+NOT with identifier
+==================
+
+!variable;
+
+---
+
+(block
+  (statement
+    (unary_expression
+      (identifier))))
+
+==================
+Bitwise NOT with variable
+==================
+
+~flags;
+
+---
+
+(block
+  (statement
+    (unary_expression
+      (identifier))))
+
+==================
+Negative variable
+==================
+
+-value;
+
+---
+
+(block
+  (statement
+    (unary_expression
+      (identifier))))
+
+==================
+Positive variable
+==================
+
++result;
+
+---
+
+(block
+  (statement
+    (unary_expression
+      (identifier))))
+
+==================
+Double negation
+==================
+
+!!condition;
+
+---
+
+(block
+  (statement
+    (unary_expression
+      (unary_expression
+        (identifier)))))
+
+==================
+Nested unary operators
+==================
+
+-~value;
+
+---
+
+(block
+  (statement
+    (unary_expression
+      (unary_expression
+        (identifier)))))
+
+==================
+NOT with function call
+==================
+
+!func();
+
+---
+
+(block
+  (statement
+    (unary_expression
+      (call_expression
+        (identifier)))))
+
+==================
+NOT with member access
+==================
+
+!obj.property;
+
+---
+
+(block
+  (statement
+    (unary_expression
+      (member_expression
+        (identifier)
+        (identifier)))))
+
+==================
+Minus with array access
+==================
+
+-arr[0];
+
+---
+
+(block
+  (statement
+    (unary_expression
+      (subscript_expression
+        (identifier)
+        (number)))))
+
+==================
+NOT with template string
+==================
+
+!"${value}";
+
+---
+
+(block
+  (statement
+    (unary_expression
+      (template_string
+        (template_variable
+          (identifier))))))
+
+==================
+Complex nested unary
+==================
+
++~-value;
+
+---
+
+(block
+  (statement
+    (unary_expression
+      (unary_expression
+        (unary_expression
+          (identifier))))))

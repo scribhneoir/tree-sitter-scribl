@@ -1,0 +1,211 @@
+==================
+Simple parenthesized expression
+==================
+
+(42);
+
+---
+
+(block
+  (statement
+    (parenthesized_expression
+      (number))))
+
+==================
+Parentheses override precedence
+==================
+
+(2 + 3) * 4;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (parenthesized_expression
+        (binary_expression
+          (number)
+          (number)))
+      (number))))
+
+==================
+Multiple levels of parentheses
+==================
+
+((x));
+
+---
+
+(block
+  (statement
+    (parenthesized_expression
+      (parenthesized_expression
+        (identifier)))))
+
+==================
+Parentheses with logical operators
+==================
+
+(true && false) || true;
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (parenthesized_expression
+        (binary_expression
+          (true)
+          (false)))
+      (true))))
+
+==================
+Complex expression with multiple parentheses
+==================
+
+(a + b) * (c - d);
+
+---
+
+(block
+  (statement
+    (binary_expression
+      (parenthesized_expression
+        (binary_expression
+          (identifier)
+          (identifier)))
+      (parenthesized_expression
+        (binary_expression
+          (identifier)
+          (identifier))))))
+
+==================
+Parentheses with function calls
+==================
+
+(func())();
+
+---
+
+(block
+  (statement
+    (call_expression
+      (parenthesized_expression
+        (call_expression
+          (identifier))))))
+
+==================
+Parentheses with member access
+==================
+
+(obj.method).property;
+
+---
+
+(block
+  (statement
+    (member_expression
+      (parenthesized_expression
+        (member_expression
+          (identifier)
+          (identifier)))
+      (identifier))))
+
+==================
+Parentheses with unary operators
+==================
+
+-(x + y);
+
+---
+
+(block
+  (statement
+    (unary_expression
+      (parenthesized_expression
+        (binary_expression
+          (identifier)
+          (identifier))))))
+
+==================
+Nested parentheses with different operators
+==================
+
+((a * b) + (c / d));
+
+---
+
+(block
+  (statement
+    (parenthesized_expression
+      (binary_expression
+        (parenthesized_expression
+          (binary_expression
+            (identifier)
+            (identifier)))
+        (parenthesized_expression
+          (binary_expression
+            (identifier)
+            (identifier)))))))
+
+==================
+Parentheses with assignment
+==================
+
+x = (y + z);
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (parenthesized_expression
+        (binary_expression
+          left: (identifier)
+          right: (identifier))))))
+
+==================
+Parentheses around single identifier
+==================
+
+(variable);
+
+---
+
+(block
+  (statement
+    (parenthesized_expression
+      (identifier))))
+
+==================
+Parentheses with string concatenation
+==================
+
+("hello" + " world");
+
+---
+
+(block
+  (statement
+    (parenthesized_expression
+      (binary_expression
+        left: (template_string)
+        right: (template_string)))))
+
+==================
+Parentheses with template strings
+==================
+
+("prefix" + "${value}");
+
+---
+
+(block
+  (statement
+    (parenthesized_expression
+      (binary_expression
+        left: (template_string)
+        right: (template_string
+          (template_variable
+            (identifier)))))))
