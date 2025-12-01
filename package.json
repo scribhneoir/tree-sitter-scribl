@@ -46,12 +46,17 @@
   "scripts": {
     "prepare": "tree-sitter generate",
     "install": "tree-sitter generate && node-gyp-build",
+    "postinstall": "npm run build:bindings",
     "prestart": "tree-sitter build --wasm",
     "start": "tree-sitter playground",
     "pretest": "tree-sitter generate",
     "test": "tree-sitter test",
+    "clean": "rm -rf build/ src/grammar.json src/node-types.json src/parser.c src/tree_sitter/",
     "generate": "tree-sitter generate",
-    "build:wasm": "tree-sitter build --wasm"
+    "build:bindings": "node-gyp-build",
+    "build:wasm": "tree-sitter build --wasm",
+    "build": "npm run clean && npm run generate && npm run build:bindings",
+    "rebuild": "npm run build"
   },
   "packageManager": "pnpm@10.24.0"
 }

@@ -203,7 +203,7 @@ module.exports = grammar({
       prec.left(
         "unary_void",
         seq(
-          field("operator", choice("!", "~", "-")),
+          field("operator", choice("!", "~", "-", "+")),
           field("argument", $._expression),
         ),
       ),
