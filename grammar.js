@@ -247,7 +247,11 @@ module.exports = grammar({
     assignment_expression: ($) =>
       prec.right(
         "assign",
-        seq(field("left", $._assignables), "=", field("right", $._expression)),
+        seq(
+          field("left", $._assignables),
+          choice("=", ":"),
+          field("right", $._expression),
+        ),
       ),
 
     parenthesized_expression: ($) => seq("(", $._expression, ")"),

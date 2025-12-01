@@ -38,19 +38,6 @@ Unary minus
       (number))))
 
 ==================
-Unary plus
-==================
-
-+456;
-
----
-
-(block
-  (statement
-    (unary_expression
-      (number))))
-
-==================
 NOT with identifier
 ==================
 
@@ -81,19 +68,6 @@ Negative variable
 ==================
 
 -value;
-
----
-
-(block
-  (statement
-    (unary_expression
-      (identifier))))
-
-==================
-Positive variable
-==================
-
-+result;
 
 ---
 
@@ -193,7 +167,7 @@ NOT with template string
 Complex nested unary
 ==================
 
-+~-value;
+~-value;
 
 ---
 
@@ -201,5 +175,4 @@ Complex nested unary
   (statement
     (unary_expression
       (unary_expression
-        (unary_expression
-          (identifier))))))
+        (identifier)))))

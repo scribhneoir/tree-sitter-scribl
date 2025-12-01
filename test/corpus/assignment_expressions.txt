@@ -459,3 +459,574 @@ result = void;
     (assignment_expression
       left: (identifier)
       right: (void))))
+
+==================
+Simple colon assignment
+==================
+
+x : 42;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (number))))
+
+==================
+String colon assignment
+==================
+
+name : 'John';
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (string))))
+
+==================
+Boolean colon assignment
+==================
+
+flag : true;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (true))))
+
+==================
+Template string colon assignment
+==================
+
+message : "Hello ${name}";
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (template_string
+        (template_variable
+          (identifier))))))
+
+==================
+Function colon assignment
+==================
+
+func : (x){x;};
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (function
+        (parameter
+          (identifier))
+        (block
+          (statement
+            (identifier)))))))
+
+==================
+Array colon assignment
+==================
+
+arr : [1, 2, 3];
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (iterator
+        (number)
+        (number)
+        (number)))))
+
+==================
+Block colon assignment
+==================
+
+block : {42;};
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (block
+        (statement
+          (number))))))
+
+==================
+Binary expression colon assignment
+==================
+
+result : x + y;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (binary_expression
+        left: (identifier)
+        right: (identifier)))))
+
+==================
+Function call colon assignment
+==================
+
+value : func();
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (call_expression
+        (identifier)))))
+
+==================
+Member expression colon assignment to member
+==================
+
+obj.property : value;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (member_expression
+        (identifier)
+        (identifier))
+      right: (identifier))))
+
+==================
+Member expression colon assignment from member
+==================
+
+x : obj.property;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (member_expression
+        (identifier)
+        (identifier)))))
+
+==================
+Array subscript colon assignment to subscript
+==================
+
+arr[0] : value;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (subscript_expression
+        (identifier)
+        (number))
+      right: (identifier))))
+
+==================
+Array subscript colon assignment from subscript
+==================
+
+x : arr[index];
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (subscript_expression
+        (identifier)
+        (identifier)))))
+
+==================
+Chained colon assignments
+==================
+
+matrix[i][j] : value;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (subscript_expression
+        (subscript_expression
+          (identifier)
+          (identifier))
+        (identifier))
+      right: (identifier))))
+
+==================
+Complex nested colon assignment
+==================
+
+obj.nested.property : func(arr[0]);
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (member_expression
+        (member_expression
+          (identifier)
+          (identifier))
+        (identifier))
+      right: (call_expression
+        (identifier)
+        (subscript_expression
+          (identifier)
+          (number))))))
+
+==================
+Empty destructuring block colon assignment
+==================
+
+{} : obj;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (destructuring_block)
+      right: (identifier))))
+
+==================
+Simple destructuring block colon assignment
+==================
+
+{x} : obj;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (destructuring_block
+        (identifier))
+      right: (identifier))))
+
+==================
+Multiple destructuring block colon assignment
+==================
+
+{a, b, c} : obj;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (destructuring_block
+        (identifier)
+        (identifier)
+        (identifier))
+      right: (identifier))))
+
+==================
+Destructuring block with trailing comma colon assignment
+==================
+
+{x, y,} : obj;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (destructuring_block
+        (identifier)
+        (identifier))
+      right: (identifier))))
+
+==================
+Empty destructuring iterator colon assignment
+==================
+
+[] : arr;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (destructuring_iterator)
+      right: (identifier))))
+
+==================
+Simple destructuring iterator colon assignment
+==================
+
+[x] : arr;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (destructuring_iterator
+        (identifier))
+      right: (identifier))))
+
+==================
+Multiple destructuring iterator colon assignment
+==================
+
+[a, b, c] : arr;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (destructuring_iterator
+        (identifier)
+        (identifier)
+        (identifier))
+      right: (identifier))))
+
+==================
+Destructuring with spread colon assignment
+==================
+
+[first, ...rest] : arr;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (destructuring_iterator
+        (identifier)
+        (identifier))
+      right: (identifier))))
+
+==================
+Destructuring with gaps colon assignment
+==================
+
+[, second, , fourth] : arr;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (destructuring_iterator
+        (identifier)
+        (identifier))
+      right: (identifier))))
+
+==================
+Spread only destructuring colon assignment
+==================
+
+[...all] : arr;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (destructuring_iterator
+        (identifier))
+      right: (identifier))))
+
+==================
+Assignment with unary expression colon assignment
+==================
+
+x : -value;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (unary_expression
+        argument: (identifier)))))
+
+==================
+Assignment with spread expression colon assignment
+==================
+
+arr : ...other;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (spread_expression
+        (identifier)))))
+
+==================
+Assignment precedence with binary colon assignment
+==================
+
+x : y + z * w;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (binary_expression
+        left: (identifier)
+        right: (binary_expression
+          left: (identifier)
+          right: (identifier))))))
+
+==================
+Void colon assignment
+==================
+
+result : void;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (void))))
+
+==================
+Mixed assignment operators
+==================
+
+x = 5;
+y : 10;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (number)))
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (number))))
+
+==================
+Colon assignment with parentheses
+==================
+
+result : (x + y) * z;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (binary_expression
+        left: (parenthesized_expression
+          (binary_expression
+            left: (identifier)
+            right: (identifier)))
+        right: (identifier)))))
+
+==================
+Nested colon assignments in blocks
+==================
+
+{
+  a : 1;
+  b : 2;
+};
+
+---
+
+(block
+  (statement
+    (block
+      (statement
+        (assignment_expression
+          left: (identifier)
+          right: (number)))
+      (statement
+        (assignment_expression
+          left: (identifier)
+          right: (number))))))
+
+==================
+Colon assignment with template string containing colon
+==================
+
+config : 'server:localhost:8080';
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (string))))
+
+==================
+Chained colon and equals assignments
+==================
+
+a : b = c : d;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (assignment_expression
+        left: (identifier)
+        right: (assignment_expression
+          left: (identifier)
+          right: (identifier))))))
+
+==================
+Colon assignment with null coalescing
+==================
+
+value : x ?? y;
+
+---
+
+(block
+  (statement
+    (assignment_expression
+      left: (identifier)
+      right: (binary_expression
+        left: (identifier)
+        right: (identifier)))))
