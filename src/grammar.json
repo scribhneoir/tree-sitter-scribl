@@ -680,7 +680,7 @@
                 "members": [
                   {
                     "type": "SYMBOL",
-                    "name": "_expression"
+                    "name": "parameter"
                   },
                   {
                     "type": "REPEAT",
@@ -693,7 +693,7 @@
                         },
                         {
                           "type": "SYMBOL",
-                          "name": "_expression"
+                          "name": "parameter"
                         }
                       ]
                     }

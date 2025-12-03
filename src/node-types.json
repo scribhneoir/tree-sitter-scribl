@@ -386,23 +386,11 @@
       "required": true,
       "types": [
         {
-          "type": "assignment_expression",
-          "named": true
-        },
-        {
-          "type": "binary_expression",
-          "named": true
-        },
-        {
           "type": "block",
           "named": true
         },
         {
           "type": "call_expression",
-          "named": true
-        },
-        {
-          "type": "false",
           "named": true
         },
         {
@@ -422,7 +410,7 @@
           "named": true
         },
         {
-          "type": "number",
+          "type": "parameter",
           "named": true
         },
         {
@@ -434,27 +422,7 @@
           "named": true
         },
         {
-          "type": "string",
-          "named": true
-        },
-        {
           "type": "subscript_expression",
-          "named": true
-        },
-        {
-          "type": "template_string",
-          "named": true
-        },
-        {
-          "type": "true",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "void",
           "named": true
         }
       ]

@@ -184,7 +184,7 @@ module.exports = grammar({
         seq(
           $._primary_expression,
           "(",
-          optional(seq($._expression, repeat(seq(",", $._expression)))),
+          optional(seq($.parameter, repeat(seq(",", $.parameter)))),
           ")",
         ),
       ),
